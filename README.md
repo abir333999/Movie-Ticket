@@ -1,120 +1,121 @@
-#include <stdio.h>
+# 🎬 Movie Ticket Booking System
 
-#define ROWS 5
-#define COLS 10
+A simple **Movie Ticket Booking System** developed using **C Programming**.
+This project allows users to view available movies, select a movie, choose seats, book tickets, and calculate the total ticket price.
 
-int seats[ROWS][COLS];
+## 📌 Features
 
-void initializeSeats() {
-    for(int i=0;i<ROWS;i++) {
-        for(int j=0;j<COLS;j++) {
-            seats[i][j]=0;
-        }
-    }
-}
+* 🎥 View available movies
+* 🎟️ Book movie tickets
+* 💺 Select seats
+* 💰 Calculate total ticket price
+* 📋 View booking information
+* ❌ Cancel booking
+* 🚪 Exit the system
 
-void displaySeats() {
-    printf("\nSeat Layout:\n\n   ");
+## 🛠️ Technologies Used
 
-    for(int i=1;i<=COLS;i++)
-        printf("%2d ",i);
+* **Programming Language:** C
+* **Compiler:** GCC
+* **IDE:** Visual Studio Code / Code::Blocks
+* **Concepts:** Functions, Arrays, Structures, Conditional Statements, Loops, File Handling
 
-    printf("\n");
+## 📂 Project Structure
 
-    for(int i=0;i<ROWS;i++) {
-        printf("%2d ",i+1);
-        for(int j=0;j<COLS;j++) {
-            if(seats[i][j]==0)
-                printf(" O ");
-            else
-                printf(" X ");
-        }
-        printf("\n");
-    }
+```text
+Movie-Ticket-Booking/
+│
+├── main.c
+├── README.md
+├── .gitignore
+└── ...
+```
 
-    printf("\nO = Available | X = Sold\n");
-}
+## ▶️ How to Run
 
-void buyTicket() {
-    int row,col;
+### 1. Clone the repository
 
-    printf("Enter Row (1-%d): ",ROWS);
-    scanf("%d",&row);
+```bash
+git clone https://github.com/your-username/movie-ticket-booking.git
+```
 
-    printf("Enter Column (1-%d): ",COLS);
-    scanf("%d",&col);
+### 2. Open the project folder
 
-    if(row<1 || row>ROWS || col<1 || col>COLS) {
-        printf("Invalid seat number!\n");
-        return;
-    }
+```bash
+cd movie-ticket-booking
+```
 
-    if(seats[row-1][col-1]==1) {
-        printf("Seat already sold!\n");
-    }
-    else {
-        seats[row-1][col-1]=1;
-        printf("Ticket booked successfully!\n");
-    }
-}
+### 3. Compile the program
 
-void showStatistics() {
-    int sold=0;
+```bash
+gcc main.c -o movie_ticket
+```
 
-    for(int i=0;i<ROWS;i++) {
-        for(int j=0;j<COLS;j++) {
-            if(seats[i][j]==1)
-                sold++;
-        }
-    }
+### 4. Run the program
 
-    int total=ROWS*COLS;
-    int available=total-sold;
+Windows:
 
-    printf("\nTotal Seats: %d\n",total);
-    printf("Sold Seats: %d\n",sold);
-    printf("Available Seats: %d\n",available);
-}
+```bash
+movie_ticket.exe
+```
 
-int main() {
+Linux/macOS:
 
-    int choice;
+```bash
+./movie_ticket
+```
 
-    initializeSeats();
+## 💻 Sample Menu
 
-    while(1) {
+```text
+=================================
+     MOVIE TICKET BOOKING SYSTEM
+=================================
 
+1. View Movies
+2. Book Ticket
+3. View Booking
+4. Cancel Booking
+5. Exit
 
-    printf("\t\t\t\t\tM-O-V-I-E---T-I-C-K-E-T---M-A-N-A-G-E-M-E-N-T\n\t\t\t\t\t---------------------------------------------\n\t\t\t\t\t\t\t\t\t\t\t\t\tABIR\n\n");
-        printf("1. Display Seats\n");
-        printf("2. Buy Ticket\n");
-        printf("3. Show Statistics\n");
-        printf("4. Exit\n");
-        printf("Enter choice: ");
+Enter your choice:
+```
 
-        scanf("%d",&choice);
+## 🎯 Project Objective
 
-        switch(choice) {
+The main objective of this project is to develop a simple console-based movie ticket booking system while applying fundamental concepts of **C programming**.
 
-            case 1:
-                displaySeats();
-                break;
+## 📚 Concepts Practiced
 
-            case 2:
-                buyTicket();
-                break;
+* Variables and Data Types
+* Input/Output
+* If-Else Statements
+* Switch Case
+* Loops
+* Functions
+* Arrays
+* Structures
+* File Handling
+* Basic Menu-Driven Programming
 
-            case 3:
-                showStatistics();
-                break;
+## 🚀 Future Improvements
 
-            case 4:
-                printf("Thank you!\n");
-                return 0;
+Some possible improvements for future versions:
 
-            default:
-                printf("Invalid choice!\n");
-        }
-    }
-    return 0;
-}
+* Add a graphical user interface
+* Add user login and registration
+* Add multiple cinema halls
+* Add online payment integration
+* Add database support
+* Add more advanced seat management
+
+## 👨‍💻 Author
+
+**MD Abir Hossain**
+
+Computer Science and Engineering
+Daffodil International University
+
+---
+
+⭐ If you find this project useful, feel free to give it a star!
